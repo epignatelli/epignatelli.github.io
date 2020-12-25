@@ -4,3 +4,9 @@ _site
 .jekyll-metadata
 Gemfile.lock
 vendor
+
+# osx
+.DS_STORE
+
+# keys
+*/keys.js
