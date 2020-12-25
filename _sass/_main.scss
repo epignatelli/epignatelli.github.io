@@ -8,10 +8,24 @@
   font-family: 'Sherpa';
   src: url('/assets/fonts/sherpa.woff2') format('woff');
   }
+@font-face {
+  font-family: "Bell";
+  src: url('assets/fonts/bell mt fett.ttf') format('ttf');
+}
+@font-face {
+  font-family: "Bell";
+  src: url('assets/fonts/BellMTItalic.ttf') format('ttf');
+  font-style: italic;
+}
+@font-face {
+  font-family: "Bell";
+  src: url('assets/fonts/BellMT_bold.woff') format('woff');
+  font-weight: bold;
+}
 
 // colors
-$text-color-base: #1F1F1F;
-$text-color-dim: #707070;
+$text-color-base: #222222;
+$text-color-dim: #909090;
 $text-color-light: #f2f2f2;
 $background-color: #FFFFFF;
 $accent-color: #EAC80D;
@@ -33,21 +47,21 @@ body {
 h1 {
   font-family: $header-font;
   font-weight: bold;
-  font-size: 36px;
-  line-height: 48px;
+  font-size: 44px;
+  line-height: 52px;
   text-align: right;
   color: $text-color-base;
   margin-top: 20px;
-  margin-bottom: 0px;
+  margin-bottom: 20px;
   }
 
 h2 {
   font-family: $text-font;
   font-weight: normal;
-  font-size: 12px;
+  font-size: 14px;
   text-align: right;
   text-transform: uppercase;
-  color: $text-color-dim;
+  color: $text-color-base;
   margin-top: 0px;
   margin-bottom: 0px;
   margin-left: 0px;
@@ -60,8 +74,8 @@ p {
   font-size: 12px;
   line-height: 18px;
   text-align: right;
-  color: $text-color-dim;
-  margin-top: 20px;
+  color: $text-color-base;
+  margin-top: 0px;
   margin-bottom: 0px;
   margin-left: 0px;
   margin-right: 0px;
@@ -78,13 +92,25 @@ hr {
 
 
 // user defined
-.header {
-  margin-top: 0px;
-  margin-bottom: 200px;
+#header {
+  margin-top: 100px;
+  margin-bottom: 150px;
 }
 
 .push-right {
   margin-right: 30px;
+}
+
+.email {
+  // font-size: 12px;
+  font-family: "Sherpa";
+  font-style: italic;
+  text-decoration: none;
+  color: $text-color-dim;
+  filter: opacity(0.5)
+}:hover {
+  filter: none;
+  transition-duration: 0.4s;
 }
 
 div.col {
@@ -92,12 +118,8 @@ div.col {
   margin-bottom: 0px;
 }
 
-#title {
-  margin-top: 200px;
-}
-
 // icons
-.fab {
+.fa, .fab, .far, .fas {
   color: $text-color-base;
   filter: opacity(0.3) saturate(0);
 }
@@ -118,7 +140,11 @@ div.col {
   height: 1em;
   width: auto;
 }
-
+.icon-gmail {
+  content: url('../images/gmail-icon.svg');
+  height: 1em;
+  width: auto;
+}
 
 // blinking cursor
 .blinking {
