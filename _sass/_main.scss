@@ -95,15 +95,23 @@ hr {
 #header {
   margin-top: 100px;
   margin-bottom: 150px;
+  padding-top: 0px;
 }
 
 #reset {
-  position: fixed;
-  margin-left: 10px;
   margin-top: 10px;
-  color: black;
-  right: 10px;
-  top: 0px;
+  background: white;
+  cursor: default;
+}
+#reset > p{
+  font-size: 10px;
+  color: $text-color-dim;
+  filter: opacity(0.3);
+}
+#reset > p:hover {
+  text-decoration: underline;
+  color: $text-color-base;
+  filter: none;
 }
 
 .push-right {
