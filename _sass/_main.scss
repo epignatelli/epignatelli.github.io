@@ -1,0 +1,147 @@
+// font-face
+@font-face {
+  font-family: 'Sage';
+  src: url('/assets/fonts/sage-bold.woff2') format('woff');
+  }
+
+@font-face {
+  font-family: 'Sherpa';
+  src: url('/assets/fonts/sherpa.woff2') format('woff');
+  }
+@font-face {
+  font-family: "Bell";
+  src: url('assets/fonts/bell mt fett.ttf') format('ttf');
+}
+@font-face {
+  font-family: "Bell";
+  src: url('assets/fonts/BellMTItalic.ttf') format('ttf');
+  font-style: italic;
+}
+@font-face {
+  font-family: "Bell";
+  src: url('assets/fonts/BellMT_bold.woff') format('woff');
+  font-weight: bold;
+}
+
+// colors
+$text-color-base: #222222;
+$text-color-dim: #909090;
+$text-color-light: #f2f2f2;
+$background-color: #FFFFFF;
+$accent-color: #EAC80D;
+
+// font face
+$header-font: Sage;
+$text-font: Sherpa;
+
+// body
+body {
+  background: white;
+  margin-left: 140px;
+  margin-right: 350px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+// text
+h1 {
+  font-family: $header-font;
+  font-weight: bold;
+  font-size: 44px;
+  line-height: 52px;
+  text-align: right;
+  color: $text-color-base;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  }
+
+h2 {
+  font-family: $text-font;
+  font-weight: normal;
+  font-size: 14px;
+  text-align: right;
+  text-transform: uppercase;
+  color: $text-color-base;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+p {
+  font-family: $text-font;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 18px;
+  text-align: right;
+  color: $text-color-base;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+hr {
+  height: 0px;
+  background: transparent;
+  border: 0.5px solid $text-color-light;
+  border-radius: 5px;
+  margin: 0px;
+}
+
+
+
+// user defined
+#header {
+  margin-top: 100px;
+  margin-bottom: 150px;
+}
+
+.push-right {
+  margin-right: 30px;
+}
+
+.email {
+  // font-size: 12px;
+  font-family: "Sherpa";
+  font-style: italic;
+  text-decoration: none;
+  color: $text-color-dim;
+  filter: opacity(0.5)
+}:hover {
+  filter: none;
+  transition-duration: 0.4s;
+}
+
+div.col {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+// icons
+.fa, .fab, .far, .fas {
+  color: $text-color-base;
+  filter: opacity(0.3) saturate(0);
+}
+.fab:hover {
+  filter: none;
+}
+.fa-twitter {
+  color: #1C9DEB !important;
+}
+.fa-linkedin {
+  color: #0170AD !important;
+}
+.fa-github {
+  color: #313030 !important;
+}
+.icon-scholar {
+  content: url('../images/google-scholar.svg');
+  height: 1em;
+  width: auto;
+}
+.icon-gmail {
+  content: url('../images/gmail-icon.svg');
+  height: 1em;
+  width: auto;
+}

@@ -9,7 +9,7 @@
         content="SUSTAINABLE CODE AT SCALE, The Buildings and Habitats object Model, A collaborative computational development project and collective experiment. By sharing and co-creating code we can better shape our environment and our future." />
     <meta name="url" content="https://bhom.xyz" />
     <meta name="keywords"
-        content="bhom, code, github, open source, AEC, parametric, model, engineering, architecture, design, software, grasshopper, dynamo, excel, visual studio, experiment, computational, co-create, collective" />
+        content="bhom, code, github, open source, AEC, parametric, model, engineering, architecture, design, stware, grasshopper, dynamo, excel, visual studio, experiment, computational, co-create, collective" />
     <meta name="google-site-verification" content="7f7klHD59fiLVhhSYAd0IhmbBu3iK9CKfS0kXCStHek" />
 
     <meta property="og:url" content="{{ site.url }}" />
@@ -17,24 +17,18 @@
     <meta property="og:author" content="{{ site.author }}" />
     <meta property="og:title" content="{{ site.title }}" />
     <meta property="og:description" content="{{ site.description }}" />
-    <meta property="og:image" content="{{ site.url | append:'/assets/images/logo.png' }}" />
+    <!-- <meta property="og:image" content="{{ site.url | append:'/assets/images/logo.png' }}" /> -->
     <meta property="og:image:type" content="image/png" />
     <meta property="og:image:height" content="2600" />
     <meta property="og:image:width" content="2600" />
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="{{ https://twitte.com | site.twitter_username }} ">
+    <meta name="twitter:site" content="https://twitter.com/{{ site.twitter_username }} ">
 
     <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
-
-    <link rel="icon" type="image/png" href="{{ " assets/images/icon192.png" | relative_url }}" />
-
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
-    <link rel="manifest" href="{{ " manifest.json" | relative_url }}">
-
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
-        integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://unpkg.com/waffle-grid/dist/waffle-grid.css">
-    <link rel="stylesheet" type="text/css" href="{{ " assets/css/style.css" | relative_url }}">
+    <link rel="stylesheet" href="https://unpkg.com/waffle-grid/dist/waffle-grid.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <script src="/assets/js/colorise.js"></script>
+</head>
