@@ -1,5 +1,3 @@
-document.canHaveFun = false;
-
 function getRandomColor() {
     var h = Math.random() * 360 + 1;
     var s = Math.floor(Math.random() * 50 + 51);
@@ -8,77 +6,105 @@ function getRandomColor() {
     return color;
 }
 
-function allElements() {
-    return document.getElementsByTagName('div');
+function soberUp() {
+    document.canTrip = false;
 }
-
-function isExcluded (element) {
-    if (element == undefined) {
-        return false;
-    }
-    return element.className.includes("exclude");
+function tripUp() {
+    document.canTrip = true;
 }
-
-function resetElement (element) {
-    element.style["background"] = "white";
-}
-
-function resetAll() {
-    var elements = allElements();
-    for (var i = 0; i < elements.length; i++) {
-        resetElement(elements[i]);
-    }
-}
-
-function freeze(e) {
+function freezeUp(e) {
     if (e.target.id == "init" || e.target.id == "reset"){
         return;
     }
-    document.canHaveFun = !document.canHaveFun;
+    document.canTrip = false;
 }
 
-function beSerious(e) {
-    document.canHaveFun = false;
-    resetAll();
-}
-
-function beFunny(e) {
-    document.canHaveFun = true;
-}
-
-// reset all elements with key down
-document.addEventListener("keydown", function(e) {
-    if (e.key == "Escape") {
-        beSerious();
-    }
-    else {
-        resetAll();
-    }
-});
-
-// freezes all elements with click on canvas
-document.addEventListener("mousedown", freeze);
-
-// register event on page load
-document.addEventListener("DOMContentLoaded", function() {
-    // stop being messy if click on reset
-    var reset = document.getElementById("reset");
-    reset.onmousedown = beSerious;
-    var init = document.getElementById("init");
-    init.onmousedown = beFunny;
-
-    // colorise if hover on div
-    var elements = allElements();
-    for (var i = 0; i < elements.length; i++) {
-        elements[i].onmouseover = function(e) {
-            if (!document.canHaveFun) {
-                return;
-            }
-            if (isExcluded(this)) {
-                return;
-            }
-            this.style["background"] = getRandomColor();
-            this.style["transition"] = "0.3s";
+function setup(pills) {
+    // freezes all elements with click on canvas
+    document.addEventListener("mousedown", freezeUp);
+    // reset all elements with key down
+    document.addEventListener("keydown", function(e) {
+        soberUp();
+        if (e.key == "Escape") {
+            pills.forEach(trip => trip.reset());
         }
+    });
+    // register event on page load
+    document.addEventListener("DOMContentLoaded", function() {
+        // subscribe to pills
+        pills.forEach(trip => trip.subscribe());
+        // stop tripping at reset button
+        var reset = document.getElementById("reset");
+        reset.onmousedown = function(e) {
+            soberUp();
+            pills.forEach(trip => trip.reset())
+        };
+        // start tripping on init click
+        var init = document.getElementById("init");
+        init.onmousedown = tripUp;
+
+    });
+}
+
+/**** Pills ****/
+backgroundPill = function() {
+    function elements() {
+        return document.querySelectorAll('*');
     }
-});
+    function trip(element) {
+        if (!document.canTrip) return;
+        if (element.className.includes("exclude")) return;
+        element.style["background"] = getRandomColor();
+    }
+    function sober(element) {
+        element.style["background"] = "white";
+    }
+    function subscribe() {
+        elements().forEach(element => {
+            element.onmouseover = function(e) {
+                trip(this);
+            }
+        });
+    }
+    function reset() {
+        elements().forEach(element => {
+                sober(element);
+        });
+    }
+    return {
+        elements: elements, trip: trip, sober: sober, subscribe: subscribe, reset: reset
+    }
+}
+glitchPill = function() {
+    function elements() {
+        return document.querySelectorAll("div");
+    }
+    function trip(element) {
+        if (!document.canTrip) return;
+        if (element.classList.contains("grid")) return;
+        element.classList.add("glitch");
+    }
+    function sober(element) {
+        element.classList.remove("glitch");
+    }
+    function subscribe() {
+        elements().forEach(element => {
+            element.onmouseover = function(e) {
+                trip(this);
+            }
+        });
+    }
+    function reset() {
+        elements().forEach(element => {
+                sober(element);
+        });
+    }
+    return {
+        elements: elements, trip: trip, sober: sober, subscribe: subscribe, reset: reset
+    }
+}
+
+// run
+document.canTrip = false;
+document.isTrippin = false;
+setup([backgroundPill()]);

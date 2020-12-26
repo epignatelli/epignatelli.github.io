@@ -36,6 +36,9 @@ $header-font: Sage;
 $text-font: Sherpa;
 
 // body
+* {
+  transition: 0.3s;
+}
 body {
   background: white;
   margin-left: auto;
@@ -118,16 +121,33 @@ div.col {
 .fixed {
   position: fixed;
 }
+.fix-bottom {
+  position: fixed;
+  bottom: 10px;
+  width: 100%;
+}
+.fix-top {
+  position: fixed;
+  top: 10px;
+  width: 100%;
+}
+.fix-center {
+  position: fixed;
+  margin: 0 auto;
+  text-align: center;
+  width: 100%;
+}
 .fix-left {
   position: fixed;
+  text-align: left;
   left: 10px;
-  top: 10px
+  width: 100%;
 }
 .fix-right {
   position: fixed;
   text-align: right;
   right: 20px;
-  top: 10px;
+  width: 100%;
 }
 
 // decorations
@@ -275,12 +295,12 @@ div.col {
 }
 
 .glitch:after{
-  animation: glitchBotom 1.5s linear infinite;
+  animation: glitchBottom 1.5s linear infinite;
   clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
   -webkit-clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
 }
 
-@keyframes glitchBotom{
+@keyframes glitchBottom{
   2%,64%{
     transform: translate(-2px,0);
   }
