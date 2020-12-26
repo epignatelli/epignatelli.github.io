@@ -1,3 +1,5 @@
+@import "waffle-grid.scss";
+
 // font-face
 @font-face {
   font-family: 'Sage';
@@ -37,7 +39,7 @@ $text-font: Sherpa;
 body {
   background: white;
   margin-left: auto;
-  margin-right: 200px;
+  margin-right: 15%;
   margin-top: 0px;
   margin-bottom: 0px;
 }
@@ -100,7 +102,7 @@ hr {
 
 // margins
 .push-right {
-  margin-right: 30px;
+  margin-right: 2.5em;
 }
 div.col {
   margin-top: 0px;
@@ -154,7 +156,7 @@ div.col {
 // sections
 #init:hover, #reset:hover  {
   text-decoration: underline;
-  cursor: help;
+  cursor: url('../images/pills.svg'), auto;
 }
 #heading {
   margin-top: 50px;
@@ -194,4 +196,98 @@ div.col {
   content: url('../images/gmail-icon.svg');
   height: 1em;
   width: auto;
+}
+
+
+// textTrippin
+// .el-sp.is-changing {
+//   animation: changing 0.1s infinite;
+// }
+
+// .el-sp {
+//   transition: all 0.1s;
+//   text-shadow: 0 0 10px #008f11;
+//   will-change: transform, opacity;
+// }
+
+// .el-sp:after {
+//   content:attr(data-txt);
+//   will-change: transform, opacity;
+// }
+
+// .el-sp.is-changing:after {
+//   animation: changingAfter 0.4s infinite alternate;
+// }
+
+// @keyframes changing {
+//   0% {opacity:1;}
+//   50% {opacity:0.5;}
+//   100% {opacity:1;}
+// }
+
+// @keyframes changingAfter {
+//   0% {opacity:0.3;transform:translateX(10px) scaleX(2)}
+//   50% {opacity:0;transform:translateX(0) scaleX(2)}
+//   100% {opacity:0.3;transform:translateX(-10px) scaleX(2)}
+// }
+
+
+
+.glitch{
+  animation: glitch 1s linear infinite;
+}
+
+@keyframes glitch{
+  2%,64%{
+    transform: translate(2px,0) skew(0deg);
+  }
+  4%,60%{
+    transform: translate(-2px,0) skew(0deg);
+  }
+  62%{
+    transform: translate(0,0) skew(5deg);
+  }
+}
+
+.glitch:before,
+.glitch:after{
+  content: attr(title);
+  position: absolute;
+  left: 0;
+}
+
+.glitch:before{
+  animation: glitchTop 1s linear infinite;
+  clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+}
+
+@keyframes glitchTop{
+  2%,64%{
+    transform: translate(2px,-2px);
+  }
+  4%,60%{
+    transform: translate(-2px,2px);
+  }
+  62%{
+    transform: translate(13px,-1px) skew(-13deg);
+  }
+}
+
+.glitch:after{
+  animation: glitchBotom 1.5s linear infinite;
+  clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
+  -webkit-clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
+}
+
+@keyframes glitchBotom{
+  2%,64%{
+    transform: translate(-2px,0);
+  }
+  4%,60%{
+    transform: translate(-2px,0);
+  }
+  62%{
+    transform: translate(-22px,5px) skew(21deg);
+  }
 }

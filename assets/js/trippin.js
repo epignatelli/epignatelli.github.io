@@ -48,7 +48,7 @@ function beFunny(e) {
 
 // reset all elements with key down
 document.addEventListener("keydown", function(e) {
-    if (e.keyCode == 27) {
+    if (e.key == "Escape") {
         beSerious();
     }
     else {
