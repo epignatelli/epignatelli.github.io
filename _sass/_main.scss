@@ -25,7 +25,7 @@
 // colors
 $text-color-base: #222222;
 $text-color-dim: #909090;
-$text-color-light: #f2f2f2;
+$text-color-light: #DEDEDE;
 $background-color: #FFFFFF;
 $accent-color: #EAC80D;
 
@@ -36,10 +36,13 @@ $text-font: Sherpa;
 // body
 body {
   background: white;
-  margin-left: 140px;
-  margin-right: 350px;
+  margin-left: auto;
+  margin-right: 200px;
   margin-top: 0px;
   margin-bottom: 0px;
+}
+div {
+  background: white;
 }
 
 // text
@@ -95,66 +98,73 @@ hr {
   margin: 0px;
 }
 
-// user defined
-#reset, #init {
-  margin-top: 10px;
-  background: white;
-  cursor: default;
-}
-#init > p, #reset > p{
-  font-size: 10px;
-  color: $text-color-dim;
-  filter: opacity(0.3);
-}
-#init {
-  text-align: right;
-}
-#init:hover {
-  text-decoration: underline;
-  color: red;
-  filter: none;
-}
-#reset{
-  text-align: left;
-}
-#reset:hover {
-  text-decoration: underline;
-  color: blue;
-  filter: none;
-}
-#opening {
-  margin-top: 50px;
-}
-#opening > p {
-  font-size: 10px;
-  color: $text-color-dim;
-  filter: opacity(0.3);
-}
-#header {
-  margin-top: 20px;
-  margin-bottom: 150px;
-}
-#header > span {
-  font-size: 10px;
-  color: $text-color-dim;
-  filter: opacity(0.3);
-}
-#trajectory {
-  margin-top: 200px;
-}
+// margins
 .push-right {
   margin-right: 30px;
-}
-.email {
-  font-family: "Sherpa";
-  font-style: italic;
-  text-decoration: none;
-  color: $text-color-dim;
-  filter: opacity(0.5)
 }
 div.col {
   margin-top: 0px;
   margin-bottom: 0px;
+}
+
+// Text dim
+.small {
+  font-size: 10px;
+}
+
+// positions
+.fixed {
+  position: fixed;
+}
+.fix-left {
+  position: fixed;
+  left: 10px;
+  top: 10px
+}
+.fix-right {
+  position: fixed;
+  text-align: right;
+  right: 20px;
+  top: 10px;
+}
+
+// decorations
+.light {
+  color: $text-color-light;
+}
+.dim {
+  color: $text-color-dim;
+}
+.text {
+  color: $text-color-base;
+}
+.red {
+  color: red;
+}
+.blue {
+  color: blue;
+}
+.fade {
+  filter: opacity(0.3);
+}
+.fade:hover {
+  filter: none;
+}
+
+// sections
+#init:hover, #reset:hover  {
+  text-decoration: underline;
+  cursor: help;
+}
+#heading {
+  margin-top: 50px;
+}
+#social {
+  margin-top: 20px;
+  margin-bottom: 150px;
+}
+#trajectory {
+  margin-top: 200px;
 }
 
 // icons
@@ -163,7 +173,7 @@ div.col {
   filter: opacity(0.3) saturate(0);
 }
 .fab:hover {
-  transition: 0.3s;
+  transition: 0.2s;
   filter: none;
 }
 .fa-twitter {
@@ -175,12 +185,12 @@ div.col {
 .fa-github {
   color: #313030 !important;
 }
-.icon-scholar {
+.fa-scholar {
   content: url('../images/google-scholar.svg');
   height: 1em;
   width: auto;
 }
-.icon-gmail {
+.fa-gmail {
   content: url('../images/gmail-icon.svg');
   height: 1em;
   width: auto;
