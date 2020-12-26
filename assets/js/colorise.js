@@ -1,73 +1,84 @@
-document.stopHavingFun = false;
+document.canHaveFun = false;
+
+function getRandomColor() {
+    var h = Math.random() * 360 + 1;
+    var s = Math.floor(Math.random() * 50 + 51);
+    var l = Math.floor(Math.random() * 50 + 51);
+    var color = 'hsl(' + h + ',' + s + '%,' + l + '%)';
+    return color;
+}
 
 function allElements() {
     return document.getElementsByTagName('div');
 }
 
-function exclude (element) {
+function isExcluded (element) {
     if (element == undefined) {
         return false;
     }
     return element.className.includes("exclude");
 }
 
-function attribute() {
-    return "background"
-}
-
-function defaultAtt() {
-    return "white";
-}
-
 function resetElement (element) {
-    var att = attribute();
-    element.style[att] = defaultAtt();
+    element.style["background"] = "white";
+}
+
+function resetAll() {
+    var elements = allElements();
+    for (var i = 0; i < elements.length; i++) {
+        resetElement(elements[i]);
+    }
+}
+
+function freeze(e) {
+    if (e.target.id == "init" || e.target.id == "reset"){
+        return;
+    }
+    document.canHaveFun = !document.canHaveFun;
+}
+
+function beSerious(e) {
+    document.canHaveFun = false;
+    resetAll();
+}
+
+function beFunny(e) {
+    document.canHaveFun = true;
 }
 
 // reset all elements with key down
-document.addEventListener("keydown", function() {
-    var elements = allElements();
-    for (var i = 0; i < elements.length; i++) {
-        resetElement(elements[i]);
+document.addEventListener("keydown", function(e) {
+    if (e.keyCode == 27) {
+        beSerious();
+    }
+    else {
+        resetAll();
     }
 });
 
-// reset all elements with click on canvas
-document.addEventListener("mousedown", function() {
-    var elements = allElements();
-    for (var i = 0; i < elements.length; i++) {
-        resetElement(elements[i]);
-    }
-});
+// freezes all elements with click on canvas
+document.addEventListener("mousedown", freeze);
 
+// register event on page load
 document.addEventListener("DOMContentLoaded", function() {
     // stop being messy if click on reset
     var reset = document.getElementById("reset");
-    reset.onmousedown = function(e) {
-        document.stopHavingFun = !document.stopHavingFun;
-        var elements = allElements();
-        for (var i = 0; i < elements.length; i++) {
-            resetElement(elements[i]);
-        }
-    }
+    reset.onmousedown = beSerious;
+    var init = document.getElementById("init");
+    init.onmousedown = beFunny;
 
     // colorise if hover on div
     var elements = allElements();
     for (var i = 0; i < elements.length; i++) {
         elements[i].onmouseover = function(e) {
-            if (document.stopHavingFun) {
+            if (!document.canHaveFun) {
                 return;
             }
-            if (exclude(this)) {
+            if (isExcluded(this)) {
                 return;
             }
-            var h = Math.random() * 360 + 1;
-            var s = Math.floor(Math.random() * 50 + 51);
-            var l = Math.floor(Math.random() * 50 + 51);
-            var color = 'hsl(' + h + ',' + s + '%,' + l + '%)';
-            var att = attribute();
-            this.style[att] = color;
-            // this.style["transition-delay"] = "0.3s";
+            this.style["background"] = getRandomColor();
+            this.style["transition"] = "0.3s";
         }
     }
 });
