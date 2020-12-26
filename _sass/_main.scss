@@ -65,6 +65,16 @@ h2 {
   margin-left: 0px;
   margin-right: 0px;
 }
+h3 {
+  font-family: $header-font;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 36px;
+  text-align: right;
+  color: $text-color-base;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 p, span {
   font-family: $text-font;
   font-weight: normal;
@@ -91,7 +101,7 @@ hr {
   background: white;
   cursor: default;
 }
-#init > p, #reset > p, #opening > p{
+#init > p, #reset > p{
   font-size: 10px;
   color: $text-color-dim;
   filter: opacity(0.3);
@@ -115,14 +125,22 @@ hr {
 #opening {
   margin-top: 50px;
 }
+#opening > p {
+  font-size: 10px;
+  color: $text-color-dim;
+  filter: opacity(0.3);
+}
 #header {
-  padding-top: 20px;
+  margin-top: 20px;
   margin-bottom: 150px;
 }
 #header > span {
   font-size: 10px;
   color: $text-color-dim;
   filter: opacity(0.3);
+}
+#trajectory {
+  margin-top: 200px;
 }
 .push-right {
   margin-right: 30px;
