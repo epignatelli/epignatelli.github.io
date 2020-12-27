@@ -1,3 +1,5 @@
+@import "waffle-grid.scss";
+
 // font-face
 @font-face {
   font-family: 'Sage';
@@ -25,7 +27,7 @@
 // colors
 $text-color-base: #222222;
 $text-color-dim: #909090;
-$text-color-light: #f2f2f2;
+$text-color-light: #DEDEDE;
 $background-color: #FFFFFF;
 $accent-color: #EAC80D;
 
@@ -34,14 +36,28 @@ $header-font: Sage;
 $text-font: Sherpa;
 
 // body
+* {
+  transition: 0.3s;
+  scroll-behavior: smooth;
+}
 body {
   background: white;
-  margin-left: 140px;
-  margin-right: 350px;
+  margin-left: auto;
+  margin-right: 15%;
   margin-top: 0px;
   margin-bottom: 0px;
 }
-
+div {
+  background: white;
+  font-family: $text-font;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 18px;
+  color: $text-color-base;
+}
+a {
+  text-decoration: none;
+}
 // text
 h1 {
   font-family: $header-font;
@@ -75,7 +91,19 @@ h3 {
   margin-top: 20px;
   margin-bottom: 20px;
 }
-p, span {
+h4 {
+  font-family: $text-font;
+  font-weight: normal;
+  font-size: 48px;
+  text-align: right;
+  text-transform: uppercase;
+  color: $text-color-base;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+p {
   font-family: $text-font;
   font-weight: normal;
   font-size: 12px;
@@ -94,76 +122,130 @@ hr {
   border-radius: 5px;
   margin: 0px;
 }
+:target:before {
+  content: "";
+  display: block;
+  height: 100px;
+  margin: 5% 0 0;
+}
 
-// user defined
-#reset, #init {
-  margin-top: 10px;
-  background: white;
-  cursor: default;
-}
-#init > p, #reset > p{
-  font-size: 10px;
-  color: $text-color-dim;
-  filter: opacity(0.3);
-}
-#init {
-  text-align: right;
-}
-#init:hover {
-  text-decoration: underline;
-  color: red;
-  filter: none;
-}
-#reset{
-  text-align: left;
-}
-#reset:hover {
-  text-decoration: underline;
-  color: blue;
-  filter: none;
-}
-#opening {
-  margin-top: 50px;
-}
-#opening > p {
-  font-size: 10px;
-  color: $text-color-dim;
-  filter: opacity(0.3);
-}
-#header {
-  margin-top: 20px;
-  margin-bottom: 150px;
-}
-#header > span {
-  font-size: 10px;
-  color: $text-color-dim;
-  filter: opacity(0.3);
-}
-#trajectory {
-  margin-top: 200px;
-}
+// margins
 .push-right {
-  margin-right: 30px;
-}
-.email {
-  font-family: "Sherpa";
-  font-style: italic;
-  text-decoration: none;
-  color: $text-color-dim;
-  filter: opacity(0.5)
+  margin-right: 2.5em;
 }
 div.col {
   margin-top: 0px;
   margin-bottom: 0px;
 }
 
+// Text dim
+.indent {
+  text-indent: -2em;
+}
+.small {
+  font-size: 10px;
+}
+.large {
+  font-size: 24px;
+}
+// positions
+.right {
+  text-align: right;
+}
+.fixed {
+  position: fixed;
+}
+.fix-bottom {
+  position: fixed;
+  bottom: 0px;
+  padding-bottom: 10px;
+}
+.fix-top {
+  position: fixed;
+  top: 0px;
+  padding-top: 10px;
+}
+.fix-center {
+  position: fixed;
+  margin: 0 auto;
+  text-align: center;
+}
+.fix-left {
+  position: fixed;
+  text-align: left;
+  left: 10px;
+}
+.fix-right {
+  position: fixed;
+  text-align: right;
+  right: 20px;
+}
+
+// decorations
+.light {
+  color: $text-color-light;
+}
+.dim {
+  color: $text-color-dim;
+}
+.text {
+  color: $text-color-base;
+}
+.red {
+  color: red;
+}
+.blue {
+  color: blue;
+}
+.fade {
+  filter: opacity(0.3);
+}
+.fade:hover {
+  filter: none;
+}
+.justify {
+  text-align: justify;
+}
+.underline {
+  box-shadow: inset 0px -0.5em 0em rgba(255, 221, 0, 0.3);
+}
+.emphasize {
+  font-weight: bold;
+}
+// sections
+#init:hover, #reset:hover  {
+  // text-decoration: underline;
+  cursor: url('../images/pills.svg'), pointer;
+}
+#heading {
+  margin-top: 50px;
+}
+#social {
+  margin-top: 20px;
+  margin-bottom: 100px;
+}
+#trajectory {
+  margin-top: 200px;
+}
+#nav {
+  background: transparent;
+}
+#enter {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: transparent;
+  opacity: 0.0;
+  z-index: 10;
+}
 // icons
 .fa, .fab, .far, .fas {
   color: $text-color-base;
   filter: opacity(0.3) saturate(0);
 }
 .fab:hover {
-  transition: 0.3s;
+  transition: 0.2s;
   filter: none;
 }
 .fa-twitter {
@@ -175,13 +257,69 @@ div.col {
 .fa-github {
   color: #313030 !important;
 }
-.icon-scholar {
+.fa-scholar {
   content: url('../images/google-scholar.svg');
   height: 1em;
   width: auto;
 }
-.icon-gmail {
+.fa-gmail {
   content: url('../images/gmail-icon.svg');
   height: 1em;
   width: auto;
+}
+
+.glitch {
+  color: #fff;
+  font-family: 'Press Start 2P';
+  font-weight: 400;
+  transition: 1s;
+  animation: glitch1 2.5s infinite;
+}
+
+.glitch:before {
+  color: #67f3da;
+  animation: glitch2 2.5s infinite;
+}
+
+.glitch:after {
+  color: #f16f6f;
+  animation: glitch3 2.5s infinite;
+}
+
+@keyframes glitch1 {
+  7% {
+    letter-spacing: 0.1em;
+    transform: skew(-0.5deg, -0.9deg);
+    opacity: 0.75;
+  }
+  30% {
+    letter-spacing: 0.7em;
+    font-size: 3em;
+    transform: skew(0.8deg, -0.1deg);
+    opacity: 0.75;
+  }
+  35% {
+    line-height: 0em;
+    transform: none;
+    opacity: 1;
+  }
+  55% {
+    letter-spacing: 1.5em;
+    transform: skew(-1deg, 0.2deg);
+    opacity: 0.75;
+  }
+  75% {
+    letter-spacing: 1.3em;
+    line-height: 0.2em;
+    font-size: 2em;
+    transform: skew(0.4deg, 1deg);
+    opacity: 0.75;
+  }
+  100% {
+    letter-spacing: 1em;
+    line-height: 1em;
+    font-size: 1em;
+    transform: none;
+    opacity: 1;
+  }
 }

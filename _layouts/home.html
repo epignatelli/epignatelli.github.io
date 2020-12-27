@@ -3,27 +3,100 @@
 {% include head.html %}
 
 <body>
+    <div id="enter">
+        <h4>
+            Don't try to <b>Escape</b> it.<br><b>Enter</b> it.
+        </h4>
+    </div>
     <div class="grid">
         {% include header.html %}
-        <div class="col col-12-of-12 right" id="title">
+        <div class="col col-12-of-12 right" id="intro">
             <h2>Currently a <b>Phd</b> Candidate at <b>UCL</b> under the supervision of <b>Laura Toni</b> and <b>Tim Rocktäschel</b></h2>
             <h1> Hello there, I am Eduardo,<br> researcher in AI.</h1>
         </div>
         <div class="col col-9-of-12 right">
-            <p>
-                I am an architect by training, a computer scientist by profession.
-                Investigating and understanding the psyche - and my psyche - is the <b>rest</b> of my life.
-                This rest turned out to coherently merge with my profession, my passion and has become my mission.
-                My interests are in <b>artificial general intelligence</b> and <b>autonomous learning</b>, and include <b>deep learning, reinforcement learning,
-                multi-agent systems</b>, game theory and computer vision.
-                <br>
-                <br>
-                <br>
+            <p class="justify">
+                <span>
+                    I started my professional journey five years ago between industry and academia. Thenceforth, I researched.
+                    My activity progressively shifted from design towards computer science,
+                    reinforcing my passion and interest in Artificial General Intelligence.
+                </span>
+                <span>
+                    In <b>2020</b> I joined the LASP group at UCL as a PhD student
+                    to consolidate the transition to AI and conduct research on Continual Learning and Reinforcement Learning.
+                </span>
+                <span>
+                    In <b>2019</b> I joined the BICI group at the Imperial College as a postdoc
+                    to study the applications of deep learning to solve differential equations in physics.
+                </span>
+                <span>
+                    At Burohappold Engineeering, in <b>2017</b>, I specialised in machine learning,
+                    and lead the applied research group in Machine Learning and Decision Making in <b>2018</b>.
+                </span>
+                <span>
+                    In <b>2015</b>, at Gridshell.it, I conducted research on generative design and
+                    multi-objective optimisation using genetic algorithms.
+                </span>
+                <span>
+                    I was awarded a bachelor and a M.sc. in Architecture at the University of Naples in <b>2015</b>,
+                    where I studied the role of human perception and the process of creative creation in design.
+                </span>
+                <span>
+                    <b>Today</b>, my research interests are in artificial general intelligence and autonomous learning,
+                    and include deep learning, reinforcement learning, multiagent systems, game theory and computer vision.
+                </span>
             </p>
         </div>
+        <div class="col col col-1-of-12 col-s-2-of-2 right" id="nav">
+            <a class="fas fa-chevron-down large fade" href="#trajectory"></a>
+        </div>
+        <div class="col col-12-of-12 right" id="trajectory">
+            <h3> Trajectory</h3>
+            <div class="row right">
+                <div class="col col-3-of-12 right">
+                    <p>
+                        In 2020 I joined the Learning and Signal Processing (LASP) group at UCL under the supervision of Laura Toni and Tim Rocktäschel.
 
+                    </p>
+                </div>
+                <div class="col col-3-of-12 right">
+                    <p>
+                        In <b>2019</b> I joined the <b>Biologically-Inspired Computation and Inference Lab</b> (BICI) at the <b>Imperial College</b>
+                        with a <b>postdoc</b> position funded by the Rosetrees Trust.
+                        I conducted research to shorten the computational time for predictive modelling of
+                        surgical interventions in cardiology, by exploring the use of deep learning to create surrogate models.
+                        I used <b>deep learning</b> to infer approximate solutions in about 1% of time necessary to standard models
+                        The project is a multidisciplinary initiative that brings together the National Heart and Lung Institute,
+                        and the Departments of Bioengineering, Aeronautics, Computing and Physics to address key challenges
+                        in the diagnosis and treatment of complex cardiac arrhythmias.
+                    </p>
+                </div>
+                <div class="col col-3-of-12 right">
+                    <p>
+                        In 2017 I joined BuroHappold Engineering, where I led the applied research in Machine Learning and Decision Making,
+                        to help understand how AI can create value for the business. I worked to democratise the access
+                        to Deep Learning technologies to allow every employee to access the knowledge and the tools. I used Visual Programming,
+                        a recognised and diffused tool for design, to create a framework that interoperates between the most common deep learning libraries,
+                        tensorflow, keras, pytorch, numpy.
+                    </p>
+                </div>
+                <div class="col col-3-of-12 right">
+                    <p>
+                    In 2015 I defended the thesis “Computational morphogenesis and construction of an acoustic shell for outdoor chamber music”.
+                    Implementing numerical methods that uses geometrical acoustics, computational physics, descriptive geometry and genetic algorithms,
+                    the work established the state of the art for generative method of passive acoustic shell for outdoor classical music.
+                    </p>
+                    <p>
+                    In 2014 I joined Gridshell.it, an italian research firm specialised in the design of sustainable, low-tech architectures.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col col-12-of-12 right" id="cv">
 
+        </div>
     </div>
+    {% include footer.html %}
 </body>
 
 </html>
