@@ -25,8 +25,14 @@ function setup(pills) {
     // reset all elements with key down
     document.addEventListener("keydown", function(e) {
         soberUp();
-        if (e.key == "Escape") {
+        if (e.key == "Enter") {
+            document.getElementById("enter").style["visibility"] = "hidden";
             pills.forEach(trip => trip.reset());
+        }
+        else if (e.key == "Escape") {
+            // if (document.canTrip){
+                document.getElementById("enter").style["visibility"] = "visible";
+            // }
         }
     });
     // register event on page load
@@ -48,6 +54,7 @@ function setup(pills) {
 
 /**** Pills ****/
 backgroundPill = function() {
+    cache = {};
     function elements() {
         return document.querySelectorAll('*');
     }
@@ -57,11 +64,14 @@ backgroundPill = function() {
         element.style["background"] = getRandomColor();
     }
     function sober(element) {
-        element.style["background"] = "white";
+        element.style["background"] = cache[element];
     }
     function subscribe() {
         elements().forEach(element => {
             element.onmouseover = function(e) {
+                if (!(this in cache)) {
+                    cache[this] = element.style["background"];
+                }
                 trip(this);
             }
         });
@@ -77,7 +87,7 @@ backgroundPill = function() {
 }
 glitchPill = function() {
     function elements() {
-        return document.querySelectorAll("div");
+        return document.querySelectorAll("h1, h2, h3, p, span, span:not([id=reset])");
     }
     function trip(element) {
         if (!document.canTrip) return;
@@ -107,4 +117,8 @@ glitchPill = function() {
 // run
 document.canTrip = false;
 document.isTrippin = false;
-setup([backgroundPill()]);
+var pills = [
+    backgroundPill(),
+    glitchPill()
+]
+setup(pills);
