@@ -139,10 +139,9 @@ div.col {
 }
 
 // Text dim
-// .indent {
-//   display:inline-block;
-//   text-indent: -2em;
-// }
+.indent {
+  text-indent: -2em;
+}
 .small {
   font-size: 10px;
 }
@@ -223,7 +222,7 @@ div.col {
 }
 #social {
   margin-top: 20px;
-  margin-bottom: 150px;
+  margin-bottom: 100px;
 }
 #trajectory {
   margin-top: 200px;
