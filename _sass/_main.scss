@@ -9,20 +9,6 @@
   font-family: 'Sherpa';
   src: url('/assets/fonts/sherpa.woff2') format('woff');
   }
-@font-face {
-  font-family: "Bell";
-  src: url('assets/fonts/bell mt fett.ttf') format('ttf');
-}
-@font-face {
-  font-family: "Bell";
-  src: url('assets/fonts/BellMTItalic.ttf') format('ttf');
-  font-style: italic;
-}
-@font-face {
-  font-family: "Bell";
-  src: url('assets/fonts/BellMT_bold.woff') format('woff');
-  font-weight: bold;
-}
 
 // colors
 $text-color-base: #222222;
@@ -42,8 +28,8 @@ $text-font: Sherpa;
 }
 body {
   background: white;
-  margin-left: auto;
   margin-right: 15%;
+  margin-left: auto;
   margin-top: 0px;
   margin-bottom: 0px;
 }
@@ -66,14 +52,16 @@ h1 {
   line-height: 1.15em;
   text-align: right;
   color: $text-color-base;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 2%;
+  margin-bottom: 2%;
   }
 h2 {
   font-family: $text-font;
   font-weight: normal;
   font-size: 14px;
-  text-align: right;
+  // text-align: right;
+  direction:rtl;
+  text-align: justify;
   text-transform: uppercase;
   color: $text-color-base;
   margin-top: 0px;
@@ -88,8 +76,8 @@ h3 {
   line-height: 1.5em;
   text-align: right;
   color: $text-color-base;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 2%;
+  margin-bottom: 2%;
 }
 h4 {
   font-family: $text-font;
@@ -108,7 +96,8 @@ p {
   font-weight: normal;
   font-size: 12px;
   line-height: 1.5em;
-  text-align: right;
+  text-align: justify;
+  direction:rtl;
   color: $text-color-base;
   margin-top: 0px;
   margin-bottom: 0px;
@@ -321,4 +310,19 @@ div.col {
     transform: none;
     opacity: 1;
   }
+}
+
+// mobile
+@media(max-width: 640px) {
+  body {
+    margin-right: 2%;
+    margin-left: 2%;
+  }
+  h1 {
+    font-size: 36px;
+  }
+  .grid {
+    max-width: 100%;
+  }
+
 }

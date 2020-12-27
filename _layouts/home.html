@@ -3,7 +3,7 @@
 {% include head.html %}
 
 <body>
-    <div id="enter">
+    <div class="s-hide" id="enter">
         <h4>
             Don't try to <b>Escape</b> it.<br><b>Enter</b> it.
         </h4>
@@ -12,9 +12,9 @@
         {% include header.html %}
         <div class="col col-12-of-12 right" id="intro">
             <h2>Currently a <b>Phd</b> Candidate at <b>UCL</b> under the supervision of <b>Laura Toni</b> and <b>Tim Rocktäschel</b></h2>
-            <h1> Hello there, I am Eduardo,<br> researcher in AI.</h1>
+            <h1><span class="s-hide">Hello there, </span>I am Eduardo,<br> researcher in AI.</h1>
         </div>
-        <div class="col col-9-of-12 right">
+        <div class="col col-9-of-12 col-s-4-of-4 right">
             <p class="justify">
                 <span>
                     I started my professional journey five years ago between industry and academia. Thenceforth, I researched.
@@ -46,20 +46,22 @@
                     and include deep learning, reinforcement learning, multiagent systems, game theory and computer vision.
                 </span>
             </p>
+            <div class="col col-1-of-12 right" id="nav">
+                <a class="fas fa-chevron-down large fade" href="#trajectory"></a>
+            </div>
         </div>
-        <div class="col col col-1-of-12 col-s-2-of-2 right" id="nav">
-            <a class="fas fa-chevron-down large fade" href="#trajectory"></a>
-        </div>
+
+
         <div class="col col-12-of-12 right" id="trajectory">
             <h3> Trajectory</h3>
             <div class="row right">
-                <div class="col col-3-of-12 right">
+                <div class="col col-3-of-12 col-s-4-of-4 right">
                     <p>
                         In 2020 I joined the Learning and Signal Processing (LASP) group at UCL under the supervision of Laura Toni and Tim Rocktäschel.
-
                     </p>
+                    <br>
                 </div>
-                <div class="col col-3-of-12 right">
+                <div class="col col-3-of-12 col-s-4-of-4 right">
                     <p>
                         In <b>2019</b> I joined the <b>Biologically-Inspired Computation and Inference Lab</b> (BICI) at the <b>Imperial College</b>
                         with a <b>postdoc</b> position funded by the Rosetrees Trust.
@@ -70,8 +72,9 @@
                         and the Departments of Bioengineering, Aeronautics, Computing and Physics to address key challenges
                         in the diagnosis and treatment of complex cardiac arrhythmias.
                     </p>
+                    <br>
                 </div>
-                <div class="col col-3-of-12 right">
+                <div class="col col-3-of-12 col-s-4-of-4 right">
                     <p>
                         In 2017 I joined BuroHappold Engineering, where I led the applied research in Machine Learning and Decision Making,
                         to help understand how AI can create value for the business. I worked to democratise the access
@@ -79,8 +82,9 @@
                         a recognised and diffused tool for design, to create a framework that interoperates between the most common deep learning libraries,
                         tensorflow, keras, pytorch, numpy.
                     </p>
+                    <br>
                 </div>
-                <div class="col col-3-of-12 right">
+                <div class="col col-3-of-12 col-s-4-of-4 right">
                     <p>
                     In 2015 I defended the thesis “Computational morphogenesis and construction of an acoustic shell for outdoor chamber music”.
                     Implementing numerical methods that uses geometrical acoustics, computational physics, descriptive geometry and genetic algorithms,
