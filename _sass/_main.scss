@@ -49,6 +49,11 @@ body {
 }
 div {
   background: white;
+  font-family: $text-font;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 18px;
+  color: $text-color-base;
 }
 a {
   text-decoration: none;
@@ -134,6 +139,10 @@ div.col {
 }
 
 // Text dim
+// .indent {
+//   display:inline-block;
+//   text-indent: -2em;
+// }
 .small {
   font-size: 10px;
 }
@@ -141,6 +150,9 @@ div.col {
   font-size: 24px;
 }
 // positions
+.right {
+  text-align: right;
+}
 .fixed {
   position: fixed;
 }
