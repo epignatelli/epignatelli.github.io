@@ -24,15 +24,15 @@ function setup(pills) {
     document.addEventListener("mousedown", freezeUp);
     // reset all elements with key down
     document.addEventListener("keydown", function(e) {
-        soberUp();
         if (e.key == "Enter") {
-            document.getElementById("enter").style["visibility"] = "hidden";
+            soberUp();
+            document.getElementById("enter").style["opacity"] = 0.0;
             pills.forEach(trip => trip.reset());
         }
         else if (e.key == "Escape") {
-            // if (document.canTrip){
-                document.getElementById("enter").style["visibility"] = "visible";
-            // }
+            if (document.canTrip){
+                document.getElementById("enter").style["opacity"] = 1.0;
+            }
         }
     });
     // register event on page load
@@ -102,6 +102,9 @@ glitchPill = function() {
             element.onmouseover = function(e) {
                 trip(this);
             }
+            element.onmouseleave = function(e) {
+                sober(this)
+            }
         });
     }
     function reset() {
@@ -111,6 +114,16 @@ glitchPill = function() {
     }
     return {
         elements: elements, trip: trip, sober: sober, subscribe: subscribe, reset: reset
+    }
+}
+shufflePill = function() {
+    function elements() {
+        return document.querySelectorAll("h1, h2, h3, p, span, span:not([id=reset])");
+    }
+    function trip(element) {
+        if (!document.canTrip) return;
+        if (element.classList.contains("grid")) return;
+        element.classList.add("glitch");
     }
 }
 
