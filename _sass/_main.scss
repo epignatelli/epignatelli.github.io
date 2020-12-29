@@ -23,6 +23,9 @@ $text-font: Sherpa;
 * {
   transition: 0.3s;
   scroll-behavior: smooth;
+  font-display: swap;
+  -webkit-font-smoothing: antialiased;
+
 }
 body {
   background: white;
@@ -200,7 +203,7 @@ div.col {
   text-align: justify;
 }
 .underline {
-  box-shadow: inset 0px -0.5em 0em rgba(255, 221, 0, 0.3);
+  box-shadow: inset 0px -0.5em 0em rgba(255, 208, 0, 0.3);
 }
 .emphasize {
   font-weight: bold;
@@ -216,7 +219,7 @@ div.col {
   margin-top: 5%;
 }
 #social {
-  margin-top: 3%;
+  margin-top: 1%;
   margin-bottom: 5%;
 }
 #nav {
