@@ -27,9 +27,9 @@ description: >- # this means to ignore newlines until "baseurl:"
   Learning and Signal Processing (LASP) at University College London (UCL).
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://epignatelli.com" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: EduPignatelli
+twitter_username: edupignatelli
 github_username:  epignatelli
-linkedin_username: eduardo-pignatelli
+linkedin_username: epignatelli
 
 # Addons
 google_analytics: UA-186052216-1
