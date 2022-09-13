@@ -24,14 +24,12 @@ jobs:
           path: epignatelli.github.io
 
       - name: Rearrange
-        run: mv -f  cv.html epignatelli.github.io/cv.html
-
-      - name: add-head
-        run: cat epignatelli.github.io/_includes/head.html epignatelli.github.io/cv.html > temp && mv temp epignatelli.github.io/cv.html
+        run: mv -f cv.html epignatelli.github.io/cv.html
 
       - name: Push-results
         run: |
           cd epignatelli.github.io
+          cat _includes/head.html cv.html > temp && mv temp cv.html
           git config --global user.name 'Eduardo'
           git config --global user.email 'edu.pignatelli@gmail.com'
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
