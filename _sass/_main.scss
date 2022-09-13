@@ -126,7 +126,7 @@ hr {
   margin: 5% 0 0;
 }
 h1.unnumbered {
-  direction: rtl;
+  direction: none;
   font-weight: bold;
   margin-top: 5em;
   @extend .left;
@@ -134,11 +134,14 @@ h1.unnumbered {
 section {
   @extend .col;
   @extend .col-9-of-12;
+  @extend .push-2-of-12;
   @extend .col-s-4-of-4;
-  @extend .push-4-of-12;
   @extend .s-un-push;
 }
-
+::marker {
+  @extend p;
+  font-weight: bold;
+}
 // margins
 .push-right {
   margin-right: 2.5em;
