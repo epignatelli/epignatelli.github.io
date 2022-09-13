@@ -27,7 +27,7 @@ jobs:
         run: ls -lr -d "$PWD"/*
 
       - name: Rearrange
-        run: \cp -r  cv.html _layouts/cv.html
+        run: \cp -r  cv.html main/_layouts/cv.html
 
       - name: Push-results
         run: |
@@ -35,6 +35,6 @@ jobs:
           git config --global user.email 'edu.pignatelli@gmail.com'
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
           git pull
-          git add cv.html
+          git add main/_layouts/cv.html
           git commit -am "Automated cv generation"
           git push
