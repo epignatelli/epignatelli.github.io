@@ -3,7 +3,7 @@ name: Compile cv
 on: push
 
 jobs:
-  convert_via_pandoc:
+  compile_cv:
     runs-on: ubuntu-18.04
     steps:
 
@@ -28,6 +28,9 @@ jobs:
 
       - name: Rearrange
         run: \cp -r  cv.html epignatelli.github.io/cv.html
+
+      - name: add-head
+        run: cat epignatelli.github.io/_includes/head.html epignatelli.github.io/cv.html > epignatelli.github.io/cv.html
 
       - name: Push-results
         run: |
