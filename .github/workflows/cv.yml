@@ -9,22 +9,19 @@ jobs:
       - name: Checkout-main
         uses: actions/checkout@v3
 
-      - run: ls -l
-
       - name: Checkout-cv
         uses: actions/checkout@v3
         with:
           repository: epignatelli/cv
           token: ${{ secrets.GITHUB_TOKEN }}
-          # path: cv
 
-      - run: ls -l
-
-      - uses: docker://pandoc/latex:2.9
+      - name: Compile-to-html
+        uses: docker://pandoc/latex:2.9
         with:
           args: --output=cv.html main.tex
 
-      - uses: actions/upload-artifact@master
+      - name: Push-results
+        uses: actions/upload-artifact@master
         with:
           name: cv.html
-          path: epignatelli.github.io/_layouts/cv.html
+          path: ../epignatelli.github.io/_layouts/cv.html
