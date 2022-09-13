@@ -27,4 +27,4 @@ jobs:
         uses: actions/upload-artifact@master
         with:
           name: _layouts/cv.html
-          path: /home/runner/work/epignatelli.github.io/cv/cv.html
+          path: /home/runner/work/epignatelli.github.io/epignatelli.github.io/cv.html
