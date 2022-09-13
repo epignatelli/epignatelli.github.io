@@ -8,14 +8,13 @@ jobs:
     steps:
       - name: Checkout-main
         uses: actions/checkout@v3
-        with:
-          path: epignatelli.github.io
 
       - name: Checkout-cv
         uses: actions/checkout@v3
         with:
           repository: epignatelli/cv
-          path: cv
+          token: ${{ secrets.GITHUB_TOKEN }}
+          # path: cv
 
       - run: ls -l
 
