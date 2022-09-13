@@ -29,13 +29,12 @@ jobs:
       - name: Push-results
         run: |
           cd epignatelli.github.io
+          ls -la
           echo '{% include head.html %}'
           cat _includes/head.html cv.html > temp && mv temp cv.html
           git config --global user.name 'Eduardo'
           git config --global user.email 'edu.pignatelli@gmail.com'
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
-          git status -vv
-          git fetch
           git pull
           git add cv.html
           git commit -m "bot publishes cv"
