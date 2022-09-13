@@ -23,15 +23,12 @@ jobs:
         with:
           path: epignatelli.github.io
 
-      - name: Rearrange
-        run: mv -f cv.html epignatelli.github.io/cv.html
-
       - name: Push-results
         run: |
+          mv -f cv.html epignatelli.github.io/_includes/cv.html
           cd epignatelli.github.io
           ls -la
           echo '{% include head.html %}'
-          cat _includes/head.html cv.html > temp && mv temp cv.html
           git config --global user.name 'Eduardo'
           git config --global user.email 'edu.pignatelli@gmail.com'
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
