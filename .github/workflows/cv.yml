@@ -33,6 +33,8 @@ jobs:
           git config --global user.name 'Eduardo'
           git config --global user.email 'edu.pignatelli@gmail.com'
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
+          git status
+          git fetch
           git pull
           git add cv.html
           git commit -am "bot publishes cv"
