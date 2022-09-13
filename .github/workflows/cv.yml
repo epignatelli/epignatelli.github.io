@@ -12,6 +12,9 @@ jobs:
         with:
           repository: epignatelli/cv
 
+      - run: |
+        ls -l
+
       - uses: docker://pandoc/latex:2.9
         with:
           args: --output=_layouts/cv.html main.tex
