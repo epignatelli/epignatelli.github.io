@@ -6,11 +6,16 @@ jobs:
   convert_via_pandoc:
     runs-on: ubuntu-18.04
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout-main
+        uses: actions/checkout@v3
+        with:
+          path: main
 
-      - uses: actions/checkout@v3
+      - name: Checkout-cv
+        uses: actions/checkout@v3
         with:
           repository: epignatelli/cv
+          path: cv
 
       - run: ls -l
 
