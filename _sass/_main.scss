@@ -125,7 +125,7 @@ hr {
   height: 10%;
   margin: 5% 0 0;
 }
-h1.unnumbered {
+h1.unnumbered, h2.unnumbered {
   direction: ltr;
   font-weight: bold;
   margin-top: 5em;
@@ -141,6 +141,13 @@ section {
 ::marker {
   @extend p;
   font-weight: bold;
+}
+#eduardo-pignatelli {
+  margin-top: 5%;
+  direction: rtl;
+}
+section > h2{
+  font-size:x-large;
 }
 // margins
 .push-right {
