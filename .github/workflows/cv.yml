@@ -23,8 +23,15 @@ jobs:
       - name: Print
         run: ls -lr -d "$PWD"/*
 
+      - name: Rearrange
+        run: \cp -r  cv.html _layouts/cv.html
+
       - name: Push-results
-        uses: actions/upload-artifact@master
-        with:
-          name: cv.html
-          path: /home/runner/work/epignatelli.github.io/epignatelli.github.io/cv.html
+        run: |
+          git config --global user.name 'Eduardo'
+          git config --global user.email 'edu.pignatelli@gmail.com'
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
+          git pull
+          git add cv.html
+          git commit -am "Automated cv generation"
+          git push
