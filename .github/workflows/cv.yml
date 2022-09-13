@@ -9,7 +9,7 @@ jobs:
       - name: Checkout-main
         uses: actions/checkout@v3
         with:
-          path: main
+          path: epignatelli.github.io
 
       - name: Checkout-cv
         uses: actions/checkout@v3
@@ -21,9 +21,9 @@ jobs:
 
       - uses: docker://pandoc/latex:2.9
         with:
-          args: --output=_layouts/cv.html main.tex
+          args: --output=epignatelli.github.io/_layouts/cv.html cv/main.tex
 
       - uses: actions/upload-artifact@master
         with:
-          name: _layouts/cv.html
-          path: _layouts/cv.html
+          name: epignatelli.github.io/_layouts/cv.html
+          path: epignatelli.github.io/_layouts/cv.html
