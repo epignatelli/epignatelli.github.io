@@ -18,23 +18,24 @@ jobs:
         with:
           args: --output=cv.html main.tex
 
-      - name: Checkout-main
+      - name: Checkout-epignatelli.github.io
         uses: actions/checkout@v3
         with:
-          path: main
+          path: epignatelli.github.io
 
       - name: Print
         run: ls -lr -d "$PWD"/*
 
       - name: Rearrange
-        run: \cp -r  cv.html main/_layouts/cv.html
+        run: \cp -r  cv.html epignatelli.github.io/_layouts/cv.html
 
       - name: Push-results
         run: |
+          cd epignatelli.github.io
           git config --global user.name 'Eduardo'
           git config --global user.email 'edu.pignatelli@gmail.com'
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
           git pull
-          git add main/_layouts/cv.html
-          git commit -am "Automated cv generation"
+          git _layouts/cv.html
+          git commit -am "bot publishes cv"
           git push
