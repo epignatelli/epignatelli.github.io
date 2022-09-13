@@ -33,5 +33,5 @@ jobs:
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
           git pull
           git add _includes/cv.html
-          git commit -m "bot publishes cv"
+          git diff --quiet && git diff --staged --quiet || git commit -m "bot publishes cv"
           git push
