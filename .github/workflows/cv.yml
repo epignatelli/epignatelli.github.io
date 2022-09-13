@@ -27,7 +27,7 @@ jobs:
         run: ls -lr -d "$PWD"/*
 
       - name: Rearrange
-        run: \cp -r  cv.html epignatelli.github.io/_layouts/cv.html
+        run: \cp -r  cv.html epignatelli.github.io/cv.html
 
       - name: Push-results
         run: |
