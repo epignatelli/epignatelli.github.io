@@ -7,16 +7,16 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v3
-      
+
       - uses: actions/checkout@v3
         with:
-          repository: epignatelli/cv
           token: ${{ secrets.ACCESS_TOKEN }}
+          repository: epignatelli/cv
 
       - uses: docker://pandoc/latex:2.9
         with:
           args: --output=_layouts/cv.html main.tex
-          
+
       - uses: actions/upload-artifact@master
         with:
           name: _layouts/cv.html
