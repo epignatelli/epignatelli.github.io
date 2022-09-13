@@ -70,7 +70,7 @@ h2 {
   margin-left: 0px;
   margin-right: 0px;
 }
-h3 {
+h3, .unnumbered {
   font-family: $header-font;
   font-weight: bold;
   font-size: 24px;
@@ -124,6 +124,9 @@ hr {
   display: block;
   height: 10%;
   margin: 5% 0 0;
+}
+.unnumbered {
+  margin-left: 15%;
 }
 
 // margins
