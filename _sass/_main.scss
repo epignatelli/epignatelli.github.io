@@ -125,18 +125,22 @@ hr {
   height: 10%;
   margin: 5% 0 0;
 }
-h1.unnumbered, h2.unnumbered {
-  direction: ltr;
-  font-weight: bold;
-  margin-top: 5em;
-  @extend .left;
-}
 section {
   @extend .col;
   @extend .col-9-of-12;
   @extend .push-2-of-12;
   @extend .col-s-4-of-4;
   @extend .s-un-push;
+}
+h1.unnumbered, h2.unnumbered {
+  direction: ltr;
+  font-weight: bold;
+  margin-top: 2em;
+  @extend .left;
+}
+section > h2{
+  font-size:x-large;
+  margin-bottom: 1em;
 }
 ::marker {
   @extend p;
@@ -145,9 +149,6 @@ section {
 #eduardo-pignatelli {
   margin-top: 5%;
   direction: rtl;
-}
-section > h2{
-  font-size:x-large;
 }
 // margins
 .push-right {
