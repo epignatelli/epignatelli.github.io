@@ -30,7 +30,7 @@ jobs:
         run: \cp -r  cv.html epignatelli.github.io/cv.html
 
       - name: add-head
-        run: cat epignatelli.github.io/_includes/head.html epignatelli.github.io/cv.html > epignatelli.github.io/cv.html
+        run: cat epignatelli.github.io/_includes/head.html epignatelli.github.io/cv.html > temp && mv temp epignatelli.github.io/cv.html
 
       - name: Push-results
         run: |
