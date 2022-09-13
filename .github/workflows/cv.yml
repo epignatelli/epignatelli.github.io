@@ -19,11 +19,13 @@ jobs:
 
       - run: ls -l
 
+      - run: cd cv
+
       - uses: docker://pandoc/latex:2.9
         with:
-          args: --output=epignatelli.github.io/_layouts/cv.html cv/main.tex
+          args: --output=cv.html main.tex
 
       - uses: actions/upload-artifact@master
         with:
-          name: epignatelli.github.io/_layouts/cv.html
+          name: cv.html
           path: epignatelli.github.io/_layouts/cv.html
