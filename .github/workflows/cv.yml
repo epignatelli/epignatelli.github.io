@@ -26,5 +26,5 @@ jobs:
       - name: Push-results
         uses: actions/upload-artifact@master
         with:
-          name: _layouts/cv.html
+          name: cv.html
           path: /home/runner/work/epignatelli.github.io/epignatelli.github.io/cv.html
