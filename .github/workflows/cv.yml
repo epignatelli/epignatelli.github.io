@@ -23,11 +23,8 @@ jobs:
         with:
           path: epignatelli.github.io
 
-      - name: Print
-        run: ls -lr -d "$PWD"/*
-
       - name: Rearrange
-        run: \cp -r  cv.html epignatelli.github.io/cv.html
+        run: mv -f  cv.html epignatelli.github.io/cv.html
 
       - name: add-head
         run: cat epignatelli.github.io/_includes/head.html epignatelli.github.io/cv.html > temp && mv temp epignatelli.github.io/cv.html
