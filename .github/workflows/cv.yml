@@ -29,6 +29,7 @@ jobs:
       - name: Push-results
         run: |
           cd epignatelli.github.io
+          echo '{% include head.html %}'
           cat _includes/head.html cv.html > temp && mv temp cv.html
           git config --global user.name 'Eduardo'
           git config --global user.email 'edu.pignatelli@gmail.com'
@@ -37,5 +38,5 @@ jobs:
           git fetch
           git pull
           git add cv.html
-          git commit -am "bot publishes cv"
+          git commit -m "bot publishes cv"
           git push
