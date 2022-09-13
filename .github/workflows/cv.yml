@@ -21,7 +21,7 @@ jobs:
           args: --output=cv.html main.tex
 
       - name: Print
-        run: ls -lr
+        run: ls -lr -d "$PWD"/*
 
       - name: Push-results
         uses: actions/upload-artifact@master
