@@ -20,6 +20,9 @@ jobs:
         with:
           args: --output=cv.html main.tex
 
+      - name: Print
+        run: ls -lr
+
       - name: Push-results
         uses: actions/upload-artifact@master
         with:
