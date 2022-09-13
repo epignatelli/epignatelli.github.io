@@ -28,7 +28,6 @@ jobs:
           mv -f cv.html epignatelli.github.io/_includes/cv.html
           cd epignatelli.github.io
           ls -la
-          echo '{% include head.html %}'
           git config --global user.name 'Eduardo'
           git config --global user.email 'edu.pignatelli@gmail.com'
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY

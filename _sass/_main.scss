@@ -125,8 +125,16 @@ hr {
   height: 10%;
   margin: 5% 0 0;
 }
-.unnumbered {
-  margin-left: 15%;
+h1.unnumbered {
+  direction: rtl;
+  font-weight: bold;
+  margin-top: 1em
+}
+section {
+  @extend .col;
+  @extend .col-9-of-12;
+  @extend .col-s-4-of-4;
+  @extend .s-un-push;
 }
 
 // margins
