@@ -102,9 +102,9 @@ glitchPill = function() {
             element.onmouseover = function(e) {
                 trip(this);
             }
-            element.onmouseleave = function(e) {
-                sober(this)
-            }
+//             element.onmouseleave = function(e) {
+//                 sober(this)
+//             }
         });
     }
     function reset() {
