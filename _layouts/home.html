@@ -8,16 +8,16 @@
         {% include header.html %}
         <div class="col col-12-of-12 right" id="intro">
             <h2>Currently <b>Lecturer at UCL</b>. Previously PhD with <b><a
-                        src="https://profiles.ucl.ac.uk/55855-laura-toni">Laura Toni</a></b> and <b><a
-                        src="https://rockt.ai/">Tim Rocktäschel</a></b></h2>
+                        href="https://profiles.ucl.ac.uk/55855-laura-toni">Laura Toni</a></b> and <b><a
+                        href="https://rockt.ai/">Tim Rocktäschel</a></b></h2>
             <h1><span class="s-hide">Hello there, </span>I am Eduardo,<br> researcher in AI.</h1>
         </div>
         <div class="col col-9-of-12 col-s-4-of-4 right">
             <p class="justify">
                 <span>
                     My research is at the intersection of <b>Deep Reinforcement Learning</b> and <b><a
-                            src="https://arxiv.org/abs/2409.12798">Large Language Models</a></b> with a focus on the
-                    <b><a src="https://arxiv.org/abs/2312.01072">Credit Assignment Problem</a></b>. I am interested in
+                            href="https://arxiv.org/abs/2409.12798">Large Language Models</a></b> with a focus on the
+                    <b><a href="https://arxiv.org/abs/2312.01072">Credit Assignment Problem</a></b>. I am interested in
                     solving the fundamental problem of how Artificial Intelligence (AI) evaluates actions and how to
                     scale RL to the real world and achieve <b>open-ended learning</b> agents.
                 </span>
@@ -37,8 +37,13 @@
             </div>
         </div>
         <div class="col col-9-of-12 push-3-of-12 m-un-push s-un-push col-s-4-of-4" id="trajectory">
-            <h4> Publications</h4>
+            <h4><a target="_blank"
+                    href="https://scholar.google.co.uk/citations?user=d-TVZ1YAAAAJ&hl=en">Publications</a></h4>
             {% bibliography --template bib %}
+        </div>
+        <div class="col col-9-of-12 push-3-of-12 m-un-push s-un-push col-s-4-of-4" id="trajectory">
+            <h4><a href="https://raw.githubusercontent.com/epignatelli/cv/main/compiled/cv.pdf">Experience</a></h4>
+            {% include experience.html %}
         </div>
         {% include footer.html %}
 </body>
