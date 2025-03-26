@@ -17,6 +17,14 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
+plugins:
+  - jekyll-scholar
+scholar:
+  style: apa
+  bibliography: publications.bib
+  locale: en
+  sort_by: year
+  order: descending
 
 title: Eduardo Pignatelli, Machine Learning Scientist
 email: edu.pignatelli@gmail.com

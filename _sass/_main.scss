@@ -13,7 +13,7 @@ $text-color-base: #222222;
 $text-color-dim: #909090;
 $text-color-light: #DEDEDE;
 $background-color: #FFFFFF;
-$accent-color: #EAC80D;
+$accent-color: #ffd900;
 
 // font face
 $header-font: Sage;
@@ -83,12 +83,12 @@ h3 {
 h4 {
   font-family: $text-font;
   font-weight: normal;
-  font-size: 48px;
-  text-align: right;
+  font-size: 24px;
+  // text-align: right;
   text-transform: uppercase;
   color: $text-color-base;
-  margin-top: 0px;
-  margin-bottom: 0px;
+  margin-top: 15%;
+  margin-bottom: 5%;
   margin-left: 0px;
   margin-right: 0px;
 }
@@ -111,6 +111,32 @@ a:visited {
 }
 a:hover {
   box-shadow: inset 0px -0.5em 0em rgba(255, 221, 0, 0.8);
+}
+ol{
+  font-family: $text-font;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 1.5em;
+  text-align: justify;
+  color: $text-color-base;
+  margin-top: 0px;
+  margin-bottom: 1em;
+  margin-left: 0px;
+  margin-right: 0px;
+  padding-left: 0em;
+  list-style-type: none;
+}
+li {
+  font-family: $text-font;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 1.5em;
+  text-align: justify;
+  color: $text-color-base;
+  margin-top: 0px;
+  margin-bottom: 1em;
+  margin-left: 0px;
+  margin-right: 0px;
 }
 hr {
   height: 0px;
@@ -227,7 +253,7 @@ div.col {
   text-align: justify;
 }
 .underline {
-  box-shadow: inset 0px -0.5em 0em rgba(255, 208, 0, 0.3);
+  box-shadow: inset 0px -0.5em 0em rgb(255, 208, 0);
 }
 .emphasize {
   font-weight: bold;
