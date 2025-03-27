@@ -24,14 +24,14 @@ function freezeUp(e) {
 }
 
 function setup(pills) {
-    document.addEventListener("click", function (e) {
+    document.addEventListener("mousedown", function (e) {
         const isInit = e.target.id === "init";
         if (!isInit && document.canTrip) {
             soberUp();
             pills.forEach(trip => trip.reset());
         }
     });
-    document.addEventListener("mousedown", freezeUp);
+    // document.addEventListener("mousedown", freezeUp);
     document.addEventListener("keydown", function (e) {
         soberUp();
         document.getElementById("enter")?.style.setProperty("opacity", "0.0");
@@ -129,7 +129,7 @@ glitchPill = function () {
                     }
                 }
                 replaceTextPreservingHTML(element, newText);
-            }, 125);
+            }, 25);
         }
     }
     function sober(element) {
@@ -137,17 +137,52 @@ glitchPill = function () {
             clearInterval(element._tripInterval);
         }
         element._tripInterval = null;
+
         if (element._originalText) {
-            element.innerHTML = element._originalText;
-            element._originalText = null;
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = element._originalText;
+            const targetText = tempDiv.textContent || tempDiv.innerText || "";
+
+            const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT, null, false);
+            const textNodes = [];
+            while (walker.nextNode()) {
+                textNodes.push(walker.currentNode);
+            }
+
+            let index = 0;
+            const maxSteps = 5;
+            const stepSize = Math.ceil(targetText.length / maxSteps);
+            const interval = setInterval(() => {
+                let scrambled = '';
+                for (let i = 0; i < targetText.length; i++) {
+                    scrambled += i < index ? targetText[i] : getRandomMatrixChar();
+                }
+
+                let charIndex = 0;
+                for (const node of textNodes) {
+                    let newValue = '';
+                    for (let i = 0; i < node.nodeValue.length; i++) {
+                        newValue += scrambled[charIndex++] || '';
+                    }
+                    node.nodeValue = newValue;
+                }
+
+                index += stepSize;
+                if (index >= targetText.length) {
+                    clearInterval(interval);
+                    element.innerHTML = element._originalText;
+                    element._originalText = null;
+
+                    if (element._originalStyles !== undefined) {
+                        element.setAttribute("style", element._originalStyles);
+                        element._originalStyles = null;
+                    } else {
+                        element.removeAttribute("style");
+                    }
+                    element.classList.remove("matrix-flicker");
+                }
+            }, 25);
         }
-        if (element._originalStyles !== undefined) {
-            element.setAttribute("style", element._originalStyles);
-            element._originalStyles = null;
-        } else {
-            element.removeAttribute("style");
-        }
-        element.classList.remove("matrix-flicker");
     }
     function subscribe() {
         elements().forEach(element => {
@@ -170,4 +205,56 @@ document.isTrippin = false;
 var pills = [
     glitchPill(),
 ];
+// Add trip hint message
+const tripHint = document.createElement('div');
+tripHint.textContent = "ESC the matrix";
+tripHint.id = "trip-hint";
+tripHint.style.position = "fixed";
+tripHint.style.top = "20px";
+tripHint.style.left = "50%";
+tripHint.style.transform = "translateX(-50%)";
+tripHint.style.padding = "8px 16px";
+tripHint.style.color = "blue";
+tripHint.style.fontSize = "14px";
+tripHint.style.fontWeight = "bold";
+tripHint.style.borderRadius = "6px";
+tripHint.style.zIndex = "1000";
+tripHint.style.display = "none";
+window.addEventListener("DOMContentLoaded", () => {
+    document.body.appendChild(tripHint);
+});
+
+// Show/hide based on trip state
+const originalTripUp = tripUp;
+tripUp = function () {
+    originalTripUp();
+    tripHint.style.display = "block";
+};
+
+const originalSoberUp = soberUp;
+soberUp = function () {
+    originalSoberUp();
+    tripHint.style.display = "none";
+};
+
+setInterval(() => {
+    if (!document.canTrip) return;
+    if (Math.random() < 0.8) return; // random chance to skip glitch cycle
+    const hint = document.getElementById("trip-hint");
+    if (!hint || !hint.textContent) return;
+    const original = "ESC the matrix";
+    const chars = original.split('');
+    const glitchIndices = [];
+    for (let i = 0; i < chars.length; i++) {
+        if (/[a-zA-Z]/.test(chars[i]) && Math.random() < 0.2) {
+            glitchIndices.push(i);
+        }
+    }
+    const glitched = chars.map((c, i) => glitchIndices.includes(i) ? getRandomMatrixChar() : c).join('');
+    hint.textContent = glitched;
+    setTimeout(() => {
+        hint.textContent = original;
+    }, 200);
+}, 220);
+
 setup(pills);
