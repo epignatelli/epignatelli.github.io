@@ -2,11 +2,11 @@
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-FBLBRDKJ11"></script>
     <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-    gtag('config', 'G-FBLBRDKJ11');
+        gtag('config', 'G-FBLBRDKJ11');
     </script>
 
     <!-- Metadata-->
@@ -15,9 +15,8 @@
     <meta http-equiv="content-language" content="en-gb" />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#0053d6"/>
-    <meta name="Description"
-        content="{{site.description}}" />
+    <meta name="theme-color" content="#0053d6" />
+    <meta name="Description" content="{{site.description}}" />
     <meta name="url" content="https://epignatelli.com" />
     <meta name="keywords"
         content="AI, Machine Learning, Continual Learning, Meta-Learning, Meta Learning, Deep Learning, Reinforcement Learning, Deep Reinforcement Learning, Academia, Research, UCL, LASP" />
@@ -39,6 +38,22 @@
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
     <link rel="stylesheet" href="/assets/css/style.css">
-    <base target="_blank">
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            document.querySelectorAll('a[href]').forEach(link => {
+                const href = link.getAttribute('href');
+
+                // Ignore links that start with '#' (internal anchors)
+                if (href.startsWith('#')) return;
+
+                // Ignore links that are explicitly marked for same-tab
+                if (link.hasAttribute('target')) return;
+
+                // Make other links open in new tab
+                link.setAttribute('target', '_blank');
+                link.setAttribute('rel', 'noopener noreferrer');
+            });
+        });
+    </script>
     <script src="/assets/js/trippin.js"></script>
 </head>
