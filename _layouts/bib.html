@@ -1,18 +1,19 @@
 <li>
-    {%- assign my_first = "Eduardo" -%}
+    {%- assign my_first = "E" -%}
     {%- assign my_last = "Pignatelli" -%}
     {%- for a in entry.author_array -%}
-    {%- capture name -%}{{ a.first }} {{ a.last }}{%- endcapture -%}
-    {%- if a.first == my_first and a.last == my_last -%}
-    {%- capture name -%}<strong>{{ a.first }} {{ a.last }}</strong>{%- endcapture -%}
-    {%- endif -%}
-    {{ name }}{%- unless forloop.last -%}, {% endunless -%}
+        {%- capture name -%}{{ a.first }} {{ a.last }}{%- endcapture -%}
+        {%- assign first_initial = a.first | slice: 0, 1 -%}
+        {%- if first_initial == my_first and a.last == my_last -%}
+            {%- capture name -%}<strong>{{ a.first }} {{ a.last }}</strong>{%- endcapture -%}
+        {%- endif -%}
+        {{ name }}{%- unless forloop.last -%}, {% endunless -%}
     {%- endfor -%} 
-    ({{ entry.year }}). <strong>{{ entry.title }}</strong>.
+    ({{ entry.year }}). {{ entry.title }}.
     {% if entry.journal %}
-    <strong>{{ entry.journal }}</strong>
+    {{ entry.journal }}
     {% elsif entry.booktitle %}
-    <strong>{{ entry.booktitle }}</strong>
+    {{ entry.booktitle }}
     {% endif %}
     {% if entry.volume %} {{ entry.volume }}{% endif %}
     {% if entry.number %}({{ entry.number }}){% endif %}
