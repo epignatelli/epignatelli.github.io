@@ -2,11 +2,12 @@
 @font-face {
   font-family: 'Sage';
   src: url('/assets/fonts/sage-bold.woff2') format('woff');
-  }
+}
+
 @font-face {
   font-family: 'Sherpa';
   src: url('/assets/fonts/sherpa.woff2') format('woff');
-  }
+}
 
 // colors
 $text-color-base: #222222;
@@ -27,6 +28,7 @@ $text-font: Sherpa;
   -webkit-font-smoothing: antialiased;
 
 }
+
 body {
   background: white;
   margin-right: 15%;
@@ -34,6 +36,7 @@ body {
   margin-top: 0px;
   margin-bottom: 0px;
 }
+
 div {
   background: white;
   font-family: $text-font;
@@ -42,9 +45,11 @@ div {
   line-height: 18px;
   color: $text-color-base;
 }
+
 a {
   text-decoration: none;
 }
+
 // text
 h1 {
   font-family: $header-font;
@@ -55,13 +60,15 @@ h1 {
   color: $text-color-base;
   margin-top: 2%;
   margin-bottom: 2%;
-  }
-h2, h1.unnumbered {
+}
+
+h2,
+h1.unnumbered {
   font-family: $text-font;
   font-weight: normal;
   font-size: 14px;
   // text-align: right;
-  direction:rtl;
+  direction: rtl;
   text-align: justify;
   text-transform: uppercase;
   color: $text-color-base;
@@ -70,6 +77,7 @@ h2, h1.unnumbered {
   margin-left: 0px;
   margin-right: 0px;
 }
+
 h3 {
   font-family: $header-font;
   font-weight: bold;
@@ -80,6 +88,7 @@ h3 {
   margin-top: 15%;
   margin-bottom: 2%;
 }
+
 h4 {
   font-family: $text-font;
   font-weight: normal;
@@ -92,6 +101,7 @@ h4 {
   margin-left: 0px;
   margin-right: 0px;
 }
+
 p {
   font-family: $text-font;
   font-weight: normal;
@@ -104,15 +114,21 @@ p {
   margin-left: 0px;
   margin-right: 0px;
 }
+
 a,
 a:visited {
+  font-weight: bold;
   color: $text-color-base;
-  box-shadow: inset 0px -0.5em 0em rgba(255, 221, 0, 0.3);
+  // box-shadow: inset 0px 1em 0em rgba(255, 221, 0, 0.8);
+  box-shadow: inset 0px 1em 0em rgba(0, 255, 174, 0.8);
 }
+
 a:hover {
-  box-shadow: inset 0px -0.5em 0em rgba(255, 221, 0, 0.8);
+  // box-shadow: inset 0px 1em 0em rgba(255, 221, 0, 0.0);
+  box-shadow: inset 0px 1em 0em rgba(0, 255, 174, 0.0);
 }
-ol{
+
+ol {
   font-family: $text-font;
   font-weight: normal;
   font-size: 12px;
@@ -126,6 +142,7 @@ ol{
   padding-left: 0em;
   list-style-type: none;
 }
+
 li {
   font-family: $text-font;
   font-weight: normal;
@@ -138,6 +155,7 @@ li {
   margin-left: 0px;
   margin-right: 0px;
 }
+
 hr {
   height: 0px;
   background: transparent;
@@ -145,12 +163,14 @@ hr {
   border-radius: 5px;
   margin: 0px;
 }
+
 :target:before {
   content: "";
   display: block;
   height: 10%;
   margin: 5% 0 0;
 }
+
 section {
   @extend .col;
   @extend .col-9-of-12;
@@ -158,28 +178,35 @@ section {
   @extend .col-s-4-of-4;
   @extend .s-un-push;
 }
-h1.unnumbered, h2.unnumbered {
+
+h1.unnumbered,
+h2.unnumbered {
   direction: ltr;
   font-weight: bold;
   margin-top: 2em;
   @extend .left;
 }
-section > h2{
-  font-size:x-large;
+
+section>h2 {
+  font-size: x-large;
   margin-bottom: 1em;
 }
+
 ::marker {
   @extend p;
   font-weight: bold;
 }
+
 #eduardo-pignatelli {
   margin-top: 5%;
   direction: rtl;
 }
+
 // margins
 .push-right {
   margin-right: 2.5em;
 }
+
 div.col {
   margin-top: 0px;
   margin-bottom: 0px;
@@ -188,98 +215,131 @@ div.col {
 // Text dim
 .experience-item {
   margin-top: 0px;
-  margin-bottom: 1em;
+  margin-bottom: 2em;
 }
+
 .indent {
   text-indent: -2em;
 }
+
 .small {
   font-size: 10px;
 }
+
 .large {
   font-size: 24px;
 }
+
 // positions
 .right {
   text-align: right;
 }
+
 .fixed {
   position: fixed;
 }
+
 .fix-bottom {
   position: fixed;
   bottom: 0px;
   padding-bottom: 10px;
 }
+
 .fix-top {
   position: fixed;
   top: 0px;
   padding-top: 10px;
 }
+
 .fix-center {
   position: fixed;
   margin: 0 auto;
   text-align: center;
 }
+
 .fix-left {
   position: fixed;
   text-align: left;
   left: 10px;
 }
+
 .fix-right {
   position: fixed;
   text-align: right;
   right: 20px;
 }
+
 // decorations
 .light {
   color: $text-color-light;
 }
+
 .dim {
   color: $text-color-dim;
 }
+
 .text {
   color: $text-color-base;
 }
+
 .red {
   color: red;
 }
+
 .blue {
   color: blue;
 }
+
 .fade {
   filter: opacity(0.3);
 }
+
 .fade:hover {
   filter: none;
 }
+
 .justify {
   text-align: justify;
 }
+
 .underline {
   box-shadow: inset 0px -0.5em 0em rgb(255, 208, 0);
 }
+
 .emphasize {
   font-weight: bold;
 }
-.noborder, .noborder:hover {
+
+.noborder,
+.noborder:hover {
   box-shadow: none;
 }
+
 // sections
-#init:hover, #reset:hover  {
+#init:hover,
+#reset:hover {
   cursor: url('../images/pills.svg'), pointer;
 }
+
 #heading {
   margin-top: 5%;
 }
+
 #social {
   margin-top: 1%;
   margin-bottom: 5%;
 }
+
+#pills {
+  margin-top: 10%;
+  // margin-bottom:%;
+}
+
 #nav {
   background: transparent;
   margin-bottom: 12%;
 }
+
 #enter {
   position: fixed;
   left: 50%;
@@ -289,6 +349,7 @@ div.col {
   opacity: 0.0;
   z-index: 10;
 }
+
 // icons
 .fa,
 .fab,
@@ -297,24 +358,30 @@ div.col {
   color: $text-color-base;
   filter: opacity(0.3) saturate(0);
 }
+
 .fab:hover {
   transition: 0.2s;
   filter: none;
 }
+
 .fa-twitter {
   color: #1C9DEB !important;
 }
+
 .fa-linkedin {
   color: #0170AD !important;
 }
+
 .fa-github {
   color: #313030 !important;
 }
+
 .fa-scholar {
   content: url('../images/google-scholar.svg');
   height: 1em;
   width: auto;
 }
+
 .fa-gmail {
   content: url('../images/gmail-icon.svg');
   height: 1em;
@@ -345,22 +412,26 @@ div.col {
     transform: skew(-0.5deg, -0.9deg);
     opacity: 0.75;
   }
+
   30% {
     letter-spacing: 0.7em;
     font-size: 3em;
     transform: skew(0.8deg, -0.1deg);
     opacity: 0.75;
   }
+
   35% {
     line-height: 0em;
     transform: none;
     opacity: 1;
   }
+
   55% {
     letter-spacing: 1.5em;
     transform: skew(-1deg, 0.2deg);
     opacity: 0.75;
   }
+
   75% {
     letter-spacing: 1.3em;
     line-height: 0.2em;
@@ -368,6 +439,7 @@ div.col {
     transform: skew(0.4deg, 1deg);
     opacity: 0.75;
   }
+
   100% {
     letter-spacing: 1em;
     line-height: 1em;
@@ -376,15 +448,18 @@ div.col {
     opacity: 1;
   }
 }
+
 // mobile
 @media(max-width: 640px) {
   body {
     margin-right: 2%;
     margin-left: 2%;
   }
+
   h1 {
     font-size: 36px;
   }
+
   .grid {
     max-width: 100%;
   }
