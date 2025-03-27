@@ -24,6 +24,13 @@ function freezeUp(e) {
 }
 
 function setup(pills) {
+    document.addEventListener("click", function (e) {
+        const isInit = e.target.id === "init";
+        if (!isInit && document.canTrip) {
+            soberUp();
+            pills.forEach(trip => trip.reset());
+        }
+    });
     document.addEventListener("mousedown", freezeUp);
     document.addEventListener("keydown", function (e) {
         soberUp();
@@ -78,7 +85,7 @@ glitchPill = function () {
         return document.querySelectorAll("h1, h2, h3, h4, h5, p, span, ul, ol, li, span:not([id=reset])");
     }
     function trip(element) {
-        if (!document.canTrip || element.classList.contains("grid")) return;
+        if (!document.canTrip || element.classList.contains("grid") || (element.id && element.id == "reset")) return;
         if (!element._originalText) {
             element._originalText = element.innerHTML;
             element._originalStyles = element.getAttribute("style") || "";
