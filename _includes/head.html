@@ -56,4 +56,15 @@
         });
     </script>
     <script src="/assets/js/trippin.js"></script>
+    <script>
+        window.addEventListener("DOMContentLoaded", () => {
+            const nav = document.getElementById("nav");
+            const intro = document.getElementById("nav-start");
+            if (nav && intro) {
+                const introTop = intro.getBoundingClientRect().top + window.scrollY;
+                nav.style.top = `${introTop}px`;
+            }
+        });
+    </script>
+
 </head>
