@@ -62,9 +62,9 @@
             const intro = document.getElementById("nav-start");
             if (nav && intro) {
                 const introTop = intro.getBoundingClientRect().top + window.scrollY;
+                // introTop = introTop - parseFloat(getComputedStyle(parentElement).fontSize);
                 nav.style.top = `${introTop}px`;
             }
         });
     </script>
-
 </head>

@@ -469,14 +469,9 @@ div.col {
   background: transparent;
   position: fixed;
   top: 30%;
-  left: 5%;
-  padding-right: 2em;
+  left: 75%;
   z-index: 10;
-  border-right: 1px solid #EEE;
-}
-
-#nav li {
-  text-align: right;
+  border-left: 1px solid #EEE;
 }
 
 #nav a {
@@ -487,14 +482,25 @@ div.col {
 }
 
 #nav a:hover {
-  // box-shadow: inset 10em 0em 0em rgba(0, 255, 174, 0.8);
-  transition: 1s;
+  transition: 0.5s;
   color: $text-color-base;
+  box-shadow: inset 10em 0em 0em rgba(0, 255, 174, 0.8);
 }
 
 #nav ul {
   margin-top: 0;
-  padding-right: 1em;
-  // border-right: 1px solid #EEE;
+  padding-left: 1em;
   list-style: none;
+}
+
+.footer {
+  text-align: center;
+  justify-content: center;
+  margin-right: -15%;
+  margin-bottom: 2%;
+  margin-top: 5%;
+}
+
+#experience {
+  margin-bottom: 2%;
 }

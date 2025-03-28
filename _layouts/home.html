@@ -8,20 +8,21 @@
         {% include header.html %}
         {% include nav.html %}
         {% include intro.html %}
-        <div class="row">
-            <div class="col col-9-of-12 col-s-4-of-4 right" id="publications">
+        <div class="row"  id="publications">
+            <div class="col col-9-of-12 col-s-4-of-4 right">
                 <h4><a target="_blank"
                         href="https://scholar.google.co.uk/citations?user=d-TVZ1YAAAAJ&hl=en">Publications</a></h4>
                 {% bibliography --template bib %}
             </div>
         </div>
-        <div class="row">
-            <div class="col col-9-of-12 col-s-4-of-4 right" id="experience">
+        <div class="row" id="experience">
+            <div class="col col-9-of-12 col-s-4-of-4 right" >
                 <h4><a href="https://raw.githubusercontent.com/epignatelli/cv/main/compiled/cv.pdf">Experience</a></h4>
                 {% include experience.html %}
             </div>
         </div>
-        {% include footer.html %}
+    </div>
+    {% include footer.html %}
 </body>
 
 </html>
