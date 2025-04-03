@@ -1,3 +1,5 @@
+const matrixChars = 'アイウエオカキクケコサシスセソタチツテトナニヌネノ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
 function getRandomMatrixChar() {
     const chars = 'アイウエオカキクケコサシスセソタチツテトナニヌネノ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     return chars.charAt(Math.floor(Math.random() * chars.length));
@@ -23,7 +25,10 @@ function freezeUp(e) {
     document.canTrip = false;
 }
 
-function setup(pills) {
+function setup() {
+    var pills = [
+        glitchPill(),
+    ];
     document.addEventListener("mousedown", function (e) {
         const isInit = e.target.id === "init";
         if (!isInit && document.canTrip) {
@@ -90,11 +95,7 @@ glitchPill = function () {
             element._originalText = element.innerHTML;
             element._originalStyles = element.getAttribute("style") || "";
         }
-        element.style.transition = 'none';
-        // element.style.color = '#00ffae';
-        // element.style.backgroundColor = 'black';
-        // element.style.fontFamily = 'monospace';
-        // element.style.letterSpacing = '1px';
+        // element.style.transition = 'none';
         element.classList.add("matrix-flicker");
 
         if (!element._tripInterval) {
@@ -202,9 +203,7 @@ glitchPill = function () {
 // run
 document.canTrip = false;
 document.isTrippin = false;
-var pills = [
-    glitchPill(),
-];
+
 // Add trip hint message
 const tripHint = document.createElement('div');
 tripHint.textContent = "ESC the matrix";
@@ -257,4 +256,92 @@ setInterval(() => {
     }, 200);
 }, 220);
 
-setup(pills);
+// Hover glitch effect on individual characters
+function setupHoverGlitch() {
+    const matrixChars = 'アイウエオカキクケコサシスセソタチツテトナニヌネノ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    document.querySelectorAll('h1, h2, h3, h4, h5, p, ol, ul, li, span, a').forEach(el => {
+        if (el.classList.contains("matrix-glitched") || el.id === "init" || el.id === "reset" || el.id === "author") return;
+        el.classList.add("matrix-glitched");
+
+        el.childNodes.forEach(node => {
+            if (node.nodeType === Node.TEXT_NODE) {
+                const words = node.textContent.split(/(\s+)/);
+                const fragment = document.createDocumentFragment();
+
+                words.forEach(word => {
+                    if (/\s+/.test(word)) {
+                        fragment.appendChild(document.createTextNode(word));
+                    } else {
+                        const span = document.createElement("span");
+                        span.textContent = word;
+
+                        span.addEventListener("mouseenter", () => {
+                            if (span._glitching) return;
+                            span._glitching = true;
+
+                            const originalText = span.textContent;
+                            const glitchText = originalText.split('')
+                                .map(char => matrixChars[Math.floor(Math.random() * matrixChars.length)])
+                                .join('');
+
+                            span.textContent = glitchText;
+                            span.style.textShadow = '1px 0 red, -1px 0 lime';
+                            span.style.transform = 'translate(1px, -1px) scale(-1, 1)';
+                            span.style.transition = 'transform 0.05s ease, text-shadow 0.05s ease';
+
+                            setTimeout(() => {
+                                span.textContent = originalText;
+                                span.style.textShadow = '';
+                                span.style.transform = '';
+                                span._glitching = false;
+                            }, 80);
+                        });
+
+                        fragment.appendChild(span);
+                    }
+                });
+
+                node.replaceWith(fragment);
+            }
+        });
+    });
+}
+
+function glitchCharSpan(charSpan) {
+    const originalChar = charSpan.textContent;
+    const randomChar = originalChar.split('')
+        .map(char => matrixChars[Math.floor(Math.random() * matrixChars.length)])
+        .join('');
+    charSpan.style.transition = 'transform 0.2s ease, text-shadow 0.2s ease';
+    charSpan.style.transform = 'scaleX(-1)';
+    charSpan.textContent = randomChar;
+    charSpan.style.textShadow = '1px 0 red, -1px 0 lime';
+    setTimeout(() => {
+        charSpan.style.transform = '';
+        charSpan.textContent = originalChar;
+        charSpan.style.textShadow = '';
+    }, 80);
+}
+
+window.addEventListener("load", () => {
+    setupHoverGlitch();
+
+    const authorName = document.getElementById("author-name");
+    const authorSurname = document.getElementById("author-surname");
+    if (authorName) {
+        setInterval(() => {
+            if (Math.random() < 0.5) return; // random chance to skip glitch cycle
+            glitchCharSpan(authorName);
+        }, 1000);
+    }
+    if (authorSurname) {
+        setInterval(() => {
+            if (Math.random() < 0.5) return; // random chance to skip glitch cycle
+            glitchCharSpan(authorSurname);
+        }, 1000);
+    }
+});
+
+
+setup();
+
